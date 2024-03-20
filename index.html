@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="./style.css">
+<body>
+
+        <div class="body">
+            <div class="main">
+                
+                
+                
+                <center>
+                    <h1>NUMBER GUESSING APPLICATION</h1>
+                    <h3>Rules:</h3>
+                    </center>
+                    <ul>
+                        <li>
+                            Select a number from 1 to 100 
+                            </li>
+                            <li>
+                                Click on the Check button
+                                </li>
+                                <li>
+                                    It will give you a hint to guess the number correctly
+                                    
+                                    </li>
+                                    <li>
+                                        Repest the same step until you find the number
+                                        
+                                        </li>
+                                        
+                                        </ul>
+                                        </div>
+                                        <input type="number" id="input" placeholder="Enter a number">
+                                        <h4 id="clue">CLUE</h4>
+        <center>
+            <p id="attempt"><strong>ATTEMPTS:</strong></p>
+            </center>
+            <h1 id="result">RESULT</h1>
+            <button type="button" onclick="check()" id="ch"> CHECK </button>
+            <button type="reset" onclick="window.location.reload()" id="re" > RESET </button>
+            </div>
+            <script>
+                var guess=document.getElementById("input");
+                var result=document.getElementById("result");
+                var attempt=document.getElementById("attempt");
+                var clue=document.getElementById("clue");
+                var random_number=Math.floor(Math.random()*10)+1;
+                var attempt1=0;
+                function check(){
+                console.log(random_number);
+                var entered_number = parseInt(guess.value);
+                if (random_number==entered_number){
+                        result.textContent="RIGHT!";
+                        alert("WON THE GAME");
+                    }
+                else{
+                        attempt1=attempt1+1;
+                        attempt.textContent="ATTEMPT:" + attempt1;
+                        result.textContent="WRONG!";
+                    }
+                if (entered_number<random_number){
+                    clue.textContent="enter a greater number";
+                }
+                if (entered_number>random_number){
+                    clue.textContent=" enter a smaller number";
+                }
+            }
+                function Reset() {
+                    guess.value="";
+                    result.textContent="RESULT";
+                    attempt.textContent="ATTEMPT:0";
+                    attempt1=0;
+                    clue.textContent="Clue";
+                }
+
+            </script>
+            
+            </body>
+</html>
